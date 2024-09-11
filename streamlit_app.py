@@ -1,3 +1,15 @@
+import streamlit as st
+import pandas as pd
+
+# Load your DataFrame (replace with your actual data)
+data = {'description': ['apple', 'banana', 'orange', 'grape', 'chicken soup', 'ramen', 'green apple']
+       , 'id': ['1', '2', '3', '4', '5', '6', '7']
+       }
+df = pd.DataFrame(data)
+# Concatenate 'id' with 'description' using a lambda function
+df['combined'] = df.apply(lambda row: f"{row['id']} | {row['description']}", axis=1)
+
+
 def radio_change(label):
     if label == 'Reject':
         st.text_area(label='Reject Reason')
